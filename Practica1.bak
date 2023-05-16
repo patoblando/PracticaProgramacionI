@@ -1,0 +1,73 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname Practica1) (read-case-sensitive #t) (teachpacks ((lib "image.rkt" "teachpack" "2htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "image.rkt" "teachpack" "2htdp")) #f)))
+; Banderas
+
+; Ejercicio 1
+
+(define (cuad) (* 56)
+
+; a) Peru
+
+ (define peru (place-image (rectangle 30 60 "solid" "red")
+                             15 30
+                             (place-image (rectangle 30 60 "solid" "red")
+                                          75 30
+                                          (place-image (rectangle 30 60 "solid" "white")
+                                                       45 30
+                                                       (empty-scene 90 60)))))
+peru
+
+; b) Italia
+
+ (define italia (place-image (rectangle 30 60 "solid" "green")
+                             15 30
+                             (place-image (rectangle 30 60 "solid" "red")
+                                          75 30
+                                          (place-image (rectangle 30 60 "solid" "white")
+                                                       45 30
+                                                       (empty-scene 90 60)))))
+italia
+
+; c)
+
+(define (bandera-tricolor-v color1 color2 color3) (place-image (rectangle 30 60 "solid" color1)
+                                                             15 30
+                                                             (place-image (rectangle 30 60 "solid" color2)
+                                                                          45 30
+                                                                          (place-image (rectangle 30 60 "solid" color3)
+                                                                                       75 30
+                                                                                       (empty-scene 90 60)))))
+(bandera-tricolor-v "green" "white" "green")
+
+; d)
+
+(define Alemania (place-image (rectangle 90 20 "solid" "black")
+                              45 10
+                              (place-image (rectangle 90 20 "solid" "red")
+                                           45 30
+                                           (place-image (rectangle 90 20 "solid" "yellow")
+                                                        45 50
+                                                        (empty-scene 90 60)))))
+Alemania
+
+; f)
+
+(define (bandera-tricolor-h c1 c2 c3) (place-image (rectangle 90 20 "solid" c1)
+                                                   45 10
+                                                   (place-image (rectangle 90 20 "solid" c2)
+                                                                45 30
+                                                                (place-image (rectangle 90 20 "solid" c3)
+                                                                             45 50
+                                                                             (empty-scene 90 60)))))
+(bandera-tricolor-h "red" "yellow" "blue")
+
+; g)
+
+(define (bandera-tricolor hor c1 c2 c3) (if (string=? hor "horizontal")
+                                            (bandera-tricolor-h c1 c2 c3)
+                                            (if (string=? hor "vertical") (bandera-tricolor-v c1 c2 c3 ) (error "Error: Argumento invalido"))))
+
+; h)
+
+(bandera-tricolor "vertical" "blue" "white" "red")

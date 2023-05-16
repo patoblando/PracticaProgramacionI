@@ -1,0 +1,16 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname Practica3.6) (read-case-sensitive #t) (teachpacks ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp")) #f)))
+(define ALTO 1280)
+(define ANCHO 720)
+(define FONDO (empty-scene ANCHO ALTO))
+(define COLOR-CIELO "black")
+(define ESCALA-ESTR 20)
+(define COLOR-ESTR "yellow")
+
+(define (interpretar s) s)
+
+(big-bang FONDO                       ; estado inicial del sistema
+          [to-draw   interpretar]
+        ;  [on-key    escribir]
+  )

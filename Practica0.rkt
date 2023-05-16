@@ -1,0 +1,53 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname Practica0) (read-case-sensitive #t) (teachpacks ((lib "image.rkt" "teachpack" "2htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "image.rkt" "teachpack" "2htdp")) #f)))
+
+; Ejercicio 2, distancia al orgien.v
+
+(define (dist-origen x  y) (sqrt (+ (sqr x) (sqr y))))
+
+; Ejercicio 3, distancia entre puntos.
+
+(define (dist-puntos x1 y1 x2 y2) (sqrt (+ (sqr (- x1 x2)) (sqr (- y1 y2)))))
+
+; Ejercicio 4, volumen de un cubo.
+
+(define (vol-cubo l) (expt l 3))
+
+; Ejercicio 5, area de un cubo.
+
+(define (area-cubo l) (* (sqr l) 6))
+
+; Ejercicio 8, lados de un triangulo.
+
+(define (case-t a b c) (and (< a (+ b c)) (and (> a b) (> a c))))
+
+(define (triangulo? a b c) (or (case-t a b c)(case-t b a c)(case-t c a b)))
+
+; Ejercicio 9, triada pitagorica.
+
+(define (case x y z) (= (+ (sqr x) (sqr y)) (sqr z)))
+
+(define (pitag x y z) (or (case x y z)(case x z y)(case z y x)))
+
+; Ejercicios Strings
+
+; Ejercicio 0, suma de longitudes.
+
+(define (len s) (string-length s))
+
+(define (suma-long s1 s2) (+ (len s1) (len s2)))
+
+; Ejercicio 1, comienzaA.
+
+(define (comienzaA str) (= 65 (char->integer (string-ref str 0))))
+
+; Ejercicio 2, insert -.
+
+(define (poner- str idx)
+     (if (= idx (len str))
+         (error 'IndexError "Out of index.")
+         (string-append
+          (substring str 0 idx)
+          (string #\-)
+          (substring str (+ idx 1)))))
