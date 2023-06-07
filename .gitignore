@@ -1,3 +1,4 @@
 *.pdf
 *.bak
-*.rtl-autorec.*
+*.rtk-autorec.*
+.Practica*
